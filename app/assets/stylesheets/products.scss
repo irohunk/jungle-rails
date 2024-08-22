@@ -92,7 +92,19 @@ main section.categories-show {
           background-color: rgba(0, 130, 29, 0.7);
           color: white;
         }
+        .badge {
+          min-width: 110px;
+          padding-left: 1em;
+          padding-right: 1em;
+          background-color: rgba(255, 0, 25, 0.7);
+          color: white;
+          padding-top: 11px;
+        p{
+          padding-left: 5px;
+          margin-bottom: 5px;
+        }
       }
     }
   }
+}
 }
