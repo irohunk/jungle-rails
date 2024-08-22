@@ -32,6 +32,14 @@
     </table>
   </div>
 
+  <% if enhanced_cart.empty? %>
+  <div class="alert alert-info empty-cart-alert" role="alert">
+    <h3>Your cart is empty!</h3>
+    <%= link_to root_path, class: 'btn-link' do %>
+      <button class="btn btn-primary">Continue Shopping</button>
+    <% end %>
+  </div>
+  <% else %>
   <div class="row">
     <div class="col-xs-12">
       <%= form_tag orders_path do %>
@@ -48,5 +56,6 @@
       <% end %>
     </div>
   </div>
+  <% end %>
 
 </section>
