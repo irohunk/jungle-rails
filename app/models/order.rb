@@ -4,6 +4,6 @@ class Order < ApplicationRecord
 
   monetize :total_cents, numericality: true
 
-  validates :stripe_charge_id, presence: true
+  validates :stripe_charge_id, :email,  presence: true
 
 end
