@@ -1,4 +1,5 @@
 # app/controllers/admin/categories_controller.rb
+
 module Admin
   class CategoriesController < ApplicationController
     before_action :authenticate
@@ -7,12 +8,30 @@ module Admin
       @categories = Category.all
     end
 
-    private
+    def new
+      @category = Category.new
+    end
 
-    def authenticate
-      authenticate_or_request_with_http_basic do |username, password|
-        username == ENV['ADMIN_USERNAME'] && password == ENV['ADMIN_PASSWORD']
+    def create
+      @category = Category.new(category_params)
+      if @category.save
+        redirect_to admin_categories_path, notice: 'Category created successfully!'
+      else
+        render :new
       end
     end
+
+    private
+
+    def category_params
+      params.require(:category).permit(:name)
+    end
   end
+
+end
+
+def authenticate
+  authenticate_or_request_with_http_basic do |username, password|
+    username == ENV['ADMIN_USERNAME'] && password == ENV['ADMIN_PASSWORD']
+end
 end

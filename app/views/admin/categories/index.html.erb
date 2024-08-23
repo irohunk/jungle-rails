@@ -1,0 +1,23 @@
+<h1>Categories</h1>
+
+<div class="well">
+    <%= link_to '+ New Category', [:new, :admin, :category], class: 'btn btn-info' %>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Created At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= category.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

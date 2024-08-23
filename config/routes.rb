@@ -13,6 +13,12 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:create, :show]
 
+  Rails.application.routes.draw do
+    namespace :admin do
+      resources :products
+      resources :categories, only: [:index, :new, :create]
+    end
+
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
@@ -77,4 +83,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+end
 end
