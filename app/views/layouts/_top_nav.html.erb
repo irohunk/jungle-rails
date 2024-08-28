@@ -43,6 +43,12 @@
           <%# </ul>
         </li> %>
       </ul>
+      <% if session[:user_id] %>
+          <%= link_to 'Logout', logout_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Sign Up', signup_path %> |
+          <%= link_to 'Login', login_path %>
+      <% end %>
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
           <a
@@ -66,14 +72,8 @@
           My Cart (<%= cart.size %>) <% end %>
         </li>
       </ul>
-    </div>
-    <% if session[:user_id] %>
-        <%= link_to 'Logout', logout_path, method: :delete %>
-      <% else %>
-        <%= link_to 'Sign Up', signup_path %> |
-        <%= link_to 'Login', login_path %>
-      <% end %>
-  </div>
+      </div>
+      </div>
 </nav>
 <script>
 (function(){
